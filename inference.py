@@ -43,9 +43,16 @@ tensor=transform(img).unsqueeze(0)
 tensor=tensor.to(device)
 start=time.time()
 pred=m(tensor)
-print(f"{time.time()-start} sec")
-# pred=pred.argmax()
-pred=pred.cpu().detach().numpy()
-print(pred)
-# out=np.argmax(pred)
-# print(out)
+
+import matplotlib.pyplot as plt
+
+plt.imshow(pred.numpy()[0], cmap='gray')
+
+
+
+# print(f"{time.time()-start} sec")
+# # pred=pred.argmax()
+# pred=pred.cpu().detach().numpy()
+# print(pred)
+# # out=np.argmax(pred)
+# # print(out)
