@@ -220,9 +220,9 @@ def parse_args():
                         help='Model to use (densenet121 or resnet50)')
     parser.add_argument('--embedding-dim', default=None, type=int,
                         help='Embedding dimension of model')
-    parser.add_argument('-p', '--labels-per-batch', default=3, type=int,
+    parser.add_argument('-p', '--labels-per-batch', default=2, type=int,
                         help='Number of unique labels/classes per batch')
-    parser.add_argument('-k', '--samples-per-label', default=16, type=int,
+    parser.add_argument('-k', '--samples-per-label', default=32, type=int,
                         help='Number of samples per label in a batch')
     parser.add_argument('--eval-batch-size', default=64, type=int)
     parser.add_argument('--epochs', default=20, type=int, metavar='N',
