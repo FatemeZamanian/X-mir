@@ -18,7 +18,8 @@ args = parser.parse_args()
 normalize = transforms.Normalize([0.485, 0.456, 0.406],
                                      [0.229, 0.224, 0.225])
 
-transform = transforms.Compose([transforms.Lambda(lambda image: image.convert('RGB')),
+transform = transforms.Compose([transforms.ToPILImage(),
+    transforms.Lambda(lambda image: image.convert('RGB')),
                                         transforms.Resize(256),
                                         transforms.CenterCrop(224),
                                         transforms.ToTensor(),
@@ -38,8 +39,6 @@ m.load_state_dict(torch.load(args.weights,map_location=args.device))
 m.eval()
 
 img=cv2.imread(args.image)
-img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-img=cv2.resize(img,(28,28))
 tensor=transform(img).unsqueeze(0)
 tensor=tensor.to(device)
 start=time.time()

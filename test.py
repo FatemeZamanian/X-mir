@@ -129,7 +129,7 @@ def evaluate(model, loader, device, args):
         out = model(samples)
         embeds.append(out)
         labels.append(_labels)
-
+    print('ouuuuut:',out)
     embeds = torch.cat(embeds, dim=0)
     labels = torch.cat(labels, dim=0)
 
