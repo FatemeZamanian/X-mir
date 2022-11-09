@@ -12,6 +12,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--device", type=str, default='cpu')
 parser.add_argument("--image", type=str, default='test1.png')
 parser.add_argument("--model", type=str, default='densenet121')
+parser.add_argument("--weights", type=str, default='weights.pth')
 args = parser.parse_args()
 
 normalize = transforms.Normalize([0.485, 0.456, 0.406],
@@ -33,7 +34,7 @@ else:
     exit()
 
 
-m.load_state_dict(torch.load('weight.pth',map_location=args.device))
+m.load_state_dict(torch.load(args.weights,map_location=args.device))
 m.eval()
 
 img=cv2.imread(args.image)
