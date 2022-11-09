@@ -84,8 +84,8 @@ class ChestXrayDataSet(Dataset):
             transform: optional transform to be applied on a sample.
         """
         mapping = {
-            'normal': 0,
-            'pneumonia': 1,
+            'positive': 0,
+            'negative': 1,
             'COVID-19': 2
         }
 
@@ -97,7 +97,7 @@ class ChestXrayDataSet(Dataset):
                 items = line.split()
                 image_name = items[1]
                 label = mapping[items[2]]
-                if label == 2 and use_covid is False:
+                if label == 1 and use_covid is False:
                     continue
                 if mask_dir is not None:
                     mask_name = os.path.join(
