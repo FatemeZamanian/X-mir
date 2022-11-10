@@ -44,15 +44,15 @@ tensor=tensor.to(device)
 start=time.time()
 pred=m(tensor)
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
-plt.imshow(pred.numpy()[0], cmap='gray')
+# plt.imshow(pred.cpu().detach().numpy()[0], cmap='gray')
 
 
 
 # print(f"{time.time()-start} sec")
 # # pred=pred.argmax()
 # pred=pred.cpu().detach().numpy()
-# print(pred)
+print(pred)
 # # out=np.argmax(pred)
 # # print(out)
